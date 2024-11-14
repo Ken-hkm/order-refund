@@ -3,8 +3,12 @@ mod handlers;
 mod routes;
 mod model;
 
+use std::sync::Arc;
 use actix_web::{App, HttpServer, web};
 use dotenv::dotenv;
+use sea_orm::DatabaseConnection;
+use sea_orm::DbConn;
+use crate::db::get_db_pool;
 
 #[actix_web::main]
 async fn main() -> std::io::Result<()> {
@@ -15,7 +19,7 @@ async fn main() -> std::io::Result<()> {
     std::env::set_var("RUST_LOG", log_level);
 
     //set db
-    let pool = db::get_db_pool().await;
+    let pool: Arc<DbConn> =  Arc::new(db::get_db_pool().await.unwrap());
 
     //set server address and port
     let port = std::env::var("SERVER_PORT").unwrap_or_else(|_| "8080".to_string());

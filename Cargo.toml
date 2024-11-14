@@ -6,7 +6,7 @@ edition = "2021"
 [dependencies]
 actix-web = "4"                   # Web framework for building HTTP servers and web applications in Rust
 tokio = { version = "1", features = ["full"] }  # Asynchronous runtime for executing async code, used with Actix
-sqlx = { version = "0.6", features = ["postgres", "runtime-tokio-native-tls"] }  # SQL toolkit and ORM with async support, configured for PostgreSQL and Tokio runtime
+sea-orm = { version = "0.7", features = ["sqlx-postgres", "runtime-tokio-native-tls"]  }
 serde = { version = "1", features = ["derive"] }  # Serialization and deserialization library with derive macros for auto-generating implementations
 serde_json = "1"                  # JSON parsing and handling, working with Serde to serialize and deserialize JSON data
 dotenv = "0.15"                   # Loads environment variables from a .env file at runtime
