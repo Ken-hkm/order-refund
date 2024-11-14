@@ -1,0 +1,16 @@
+[package]
+name = "klik-order-refund"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+actix-web = "4"                   # Web framework for building HTTP servers and web applications in Rust
+tokio = { version = "1", features = ["full"] }  # Asynchronous runtime for executing async code, used with Actix
+sqlx = { version = "0.6", features = ["postgres", "runtime-tokio-native-tls"] }  # SQL toolkit and ORM with async support, configured for PostgreSQL and Tokio runtime
+serde = { version = "1", features = ["derive"] }  # Serialization and deserialization library with derive macros for auto-generating implementations
+serde_json = "1"                  # JSON parsing and handling, working with Serde to serialize and deserialize JSON data
+dotenv = "0.15"                   # Loads environment variables from a .env file at runtime
+rust_decimal = "1.30"             # Provides a Decimal data type for precise financial and decimal calculations
+serde_yaml = "0.9"                # YAML support with Serde for parsing YAML configuration files
+log = "0.4"                       # Logging facade providing macros for logging at different levels (info, warn, error, etc.)
+env_logger = "0.10"               # Environment-based logger, works with the `log` crate to log based on environment variables
